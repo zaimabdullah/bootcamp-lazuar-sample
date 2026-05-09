@@ -7,7 +7,10 @@ import { AuthGuard } from "../components/auth-guard";
 import { Sidebar } from "../components/sidebar";
 import { TopNav } from "../components/top-nav";
 import { CreateBoardDialog } from "../components/create-board-dialog";
-import { BoardsListSkeleton, BoardSkeleton } from "../components/loading-skeletons";
+import {
+  BoardsListSkeleton,
+  BoardSkeleton,
+} from "../components/loading-skeletons";
 import { useBoards } from "../hooks/use-kanban";
 import { Button } from "@/components/ui/button";
 import { LayoutDashboard } from "lucide-react";
@@ -32,7 +35,10 @@ function PageContent() {
       if (urlBoardId && boards.find((b) => b.id === urlBoardId)) {
         // Valid board ID in URL, select it
         setSelectedBoardId(urlBoardId);
-      } else if (!selectedBoardId || !boards.find((b) => b.id === selectedBoardId)) {
+      } else if (
+        !selectedBoardId ||
+        !boards.find((b) => b.id === selectedBoardId)
+      ) {
         // No board selected, or selected board was deleted: default to the first board
         setSelectedBoardId(boards[0].id);
         router.replace(`/?boardId=${boards[0].id}`);
@@ -75,8 +81,12 @@ function PageContent() {
           <TopNav />
           <div className="flex items-center justify-center flex-1 px-4">
             <div className="mx-auto max-w-sm rounded-xl border border-destructive/50 bg-destructive/5 p-6 text-center">
-              <h2 className="text-lg font-semibold text-destructive">Failed to load boards</h2>
-              <Button onClick={() => refetch()} className="mt-4" size="sm">Retry</Button>
+              <h2 className="text-lg font-semibold text-destructive">
+                Failed to load boards
+              </h2>
+              <Button onClick={() => refetch()} className="mt-4" size="sm">
+                Retry Again
+              </Button>
             </div>
           </div>
         </div>
@@ -95,7 +105,9 @@ function PageContent() {
               <div className="mx-auto w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-xl flex items-center justify-center mb-4">
                 <LayoutDashboard className="h-6 w-6 text-slate-400" />
               </div>
-              <h1 className="text-xl font-bold tracking-tight">Welcome to Lazuar</h1>
+              <h1 className="text-xl font-bold tracking-tight">
+                Welcome to Lazuar
+              </h1>
               <p className="text-slate-500 mt-2 text-sm">
                 Get started by creating your first board to organize your tasks.
               </p>
