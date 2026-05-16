@@ -82,7 +82,7 @@ function PageContent() {
           <div className="flex items-center justify-center flex-1 px-4">
             <div className="mx-auto max-w-sm rounded-xl border border-destructive/50 bg-destructive/5 p-6 text-center">
               <h2 className="text-lg font-semibold text-destructive">
-                Failed to load boards
+                Failed to load boards test
               </h2>
               <Button onClick={() => refetch()} className="mt-4" size="sm">
                 Retry Again
